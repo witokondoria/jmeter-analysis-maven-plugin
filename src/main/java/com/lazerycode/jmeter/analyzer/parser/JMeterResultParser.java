@@ -159,9 +159,16 @@ public class JMeterResultParser {
 
         // --- parse duration
         long duration = -1;
-        String durationString = attributes.getValue("t");
+        String durationString;
+        String transaction = attributes.getValue("tn");
+        if (transaction.contains("monitor thread")) {	
+        	durationString = attributes.getValue("lt");
+        }
+        else {
+        	durationString = attributes.getValue("t");
+        }
         try {
-          duration = Long.parseLong(durationString);
+        	duration = Long.parseLong(durationString);
         }
         catch (Exception e) {
           getLog().warn("Error parsing duration '"+durationString+"'");

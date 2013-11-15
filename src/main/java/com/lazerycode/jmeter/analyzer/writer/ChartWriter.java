@@ -8,6 +8,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
+import org.jfree.chart.renderer.xy.XYAreaRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -139,8 +140,9 @@ public class ChartWriter extends WriterBase {
     NumberAxis rangeAxis = new NumberAxis(rangeAxisName);
     plot.setRangeAxis(rangeAxis);
 
-    XYBarRenderer renderer1 = new XYBarRenderer();
-    renderer1.setShadowVisible(false);
+//  XYBarRenderer renderer1 = new XYBarRenderer();
+//  renderer1.setShadowVisible(false);    
+    XYAreaRenderer renderer1 = new XYAreaRenderer();
     plot.setDataset(1, singleValues);
     plot.setRenderer(1, renderer1);
 
